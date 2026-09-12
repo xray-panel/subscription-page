@@ -1,6 +1,6 @@
 ## XPANEL Subscription Page
 
-Learn more about XPANEL [here](https://docs.CHANGE-ME.example/).
+Learn more about XPANEL [here](https://docs.xraypanel.dev/).
 
 # Contributors
 

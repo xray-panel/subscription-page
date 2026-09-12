@@ -1,7 +1,7 @@
 import { getBorderCharacters, table } from 'table';
 
 export async function getStartMessage() {
-    return table([['Docs → https://docs.CHANGE-ME.example\nCommunity → https://github.com/CHANGE-ME/xpanel']], {
+    return table([['Docs → https://docs.xraypanel.dev\nCommunity → https://github.com/CHANGE-ME/xpanel']], {
         header: {
             content: `XPANEL Subscription Page v${__RW_SUBPAGE_VERSION__}`,
             alignment: 'center',
