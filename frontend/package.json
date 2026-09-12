@@ -2,15 +2,15 @@
   "name": "@xpanel/subscription-page",
   "version": "8.0.0",
   "private": false,
-  "homepage": "https://github.com/CHANGE-ME/xpanel",
+  "homepage": "https://github.com/kitten443/xpanel",
   "bugs": {
-    "url": "https://github.com/CHANGE-ME/xpanel/subscription-page/issues"
+    "url": "https://github.com/kitten443/xpanel/subscription-page/issues"
   },
   "license": "AGPL-3.0-only",
   "author": "REMNAWAVE <github.com/remnawave>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CHANGE-ME/xpanel/subscription-page.git"
+    "url": "git+https://github.com/kitten443/xpanel/subscription-page.git"
   },
   "type": "module",
   "scripts": {

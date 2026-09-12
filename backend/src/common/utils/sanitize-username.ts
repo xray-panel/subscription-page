@@ -1,4 +1,4 @@
-// Reference: https://github.com/CHANGE-ME/xpanel/migrate/blob/main/marzban/util/username_sanitizer.go
+// Reference: https://github.com/kitten443/xpanel/migrate/blob/main/marzban/util/username_sanitizer.go
 
 export function sanitizeUsername(username: string): string {
     // Define regex pattern for valid characters

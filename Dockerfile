@@ -17,8 +17,8 @@ WORKDIR /opt/app
 
 LABEL org.opencontainers.image.title="XPANEL Subscription Page"
 LABEL org.opencontainers.image.description="XPANEL Subscription Page"
-LABEL org.opencontainers.image.url="https://github.com/CHANGE-ME/xpanel/subscription-page"
-LABEL org.opencontainers.image.source="https://github.com/CHANGE-ME/xpanel/subscription-page"
+LABEL org.opencontainers.image.url="https://github.com/kitten443/xpanel/subscription-page"
+LABEL org.opencontainers.image.source="https://github.com/kitten443/xpanel/subscription-page"
 LABEL org.opencontainers.image.vendor="XPANEL"
 LABEL org.opencontainers.image.licenses="AGPL-3.0"
 LABEL org.opencontainers.image.documentation="https://docs.xraypanel.dev"
