@@ -8,8 +8,8 @@
         ],
         "branding": {
             "name": "Subscription",
-            "logoUrl": "https://docs.rw/img/logo.svg",
-            "supportUrl": "https://t.me/remnawave"
+            "logoUrl": "https://docs.CHANGE-ME.example/img/logo.svg",
+            "supportUrl": "https://github.com/CHANGE-ME/xpanel"
         }
     },
     "platforms": {
@@ -275,7 +275,7 @@
                 "id": "clash-mi",
                 "name": "Clash Mi",
                 "isFeatured": false,
-                "urlScheme": "clash://install-config?overwrite=no&name=Remnawave&url=",
+                "urlScheme": "clash://install-config?overwrite=no&name=XPANEL&url=",
                 "installationStep": {
                     "buttons": [
                         {
@@ -394,7 +394,7 @@
                 "id": "clash-meta",
                 "name": "Clash Meta",
                 "isFeatured": true,
-                "urlScheme": "clashmeta://install-config?name=Remnawave&url=",
+                "urlScheme": "clashmeta://install-config?name=XPANEL&url=",
                 "installationStep": {
                     "buttons": [
                         {
@@ -514,7 +514,7 @@
                 "id": "v2rayNG",
                 "name": "v2rayNG",
                 "isFeatured": false,
-                "urlScheme": "v2rayng://install-config?name=Remnawave&url=",
+                "urlScheme": "v2rayng://install-config?name=XPANEL&url=",
                 "installationStep": {
                     "buttons": [
                         {

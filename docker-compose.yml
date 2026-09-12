@@ -1,5 +1,5 @@
 services:
-  remnawave-subscription-page:
+  xpanel-subscription-page:
     build:
       context: .
       dockerfile: Dockerfile

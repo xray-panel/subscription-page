@@ -208,7 +208,7 @@ export class WebpageService implements OnApplicationBootstrap {
             const subpageConfig = subpageConfigResponse.response;
 
             if (subpageConfig.webpageAllowed === false) {
-                this.logger.log(`Webpage access is not allowed by Remnawave's SRR.`);
+                this.logger.log(`Webpage access is not allowed by XPANEL's SRR.`);
                 res.socket?.destroy();
                 return;
             }

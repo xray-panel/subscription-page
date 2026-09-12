@@ -1,9 +1,9 @@
 import { getBorderCharacters, table } from 'table';
 
 export async function getStartMessage() {
-    return table([['Docs → https://docs.rw\nCommunity → https://t.me/remnawave']], {
+    return table([['Docs → https://docs.CHANGE-ME.example\nCommunity → https://github.com/CHANGE-ME/xpanel']], {
         header: {
-            content: `Remnawave Subscription Page v${__RW_SUBPAGE_VERSION__}`,
+            content: `XPANEL Subscription Page v${__RW_SUBPAGE_VERSION__}`,
             alignment: 'center',
         },
         columnDefault: {

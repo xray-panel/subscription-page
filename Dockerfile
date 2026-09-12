@@ -15,13 +15,13 @@ RUN npm run build \
 FROM node:24.18-trixie-slim
 WORKDIR /opt/app
 
-LABEL org.opencontainers.image.title="Remnawave Subscription Page"
-LABEL org.opencontainers.image.description="Remnawave Subscription Page"
-LABEL org.opencontainers.image.url="https://github.com/remnawave/subscription-page"
-LABEL org.opencontainers.image.source="https://github.com/remnawave/subscription-page"
-LABEL org.opencontainers.image.vendor="Remnawave"
+LABEL org.opencontainers.image.title="XPANEL Subscription Page"
+LABEL org.opencontainers.image.description="XPANEL Subscription Page"
+LABEL org.opencontainers.image.url="https://github.com/CHANGE-ME/xpanel/subscription-page"
+LABEL org.opencontainers.image.source="https://github.com/CHANGE-ME/xpanel/subscription-page"
+LABEL org.opencontainers.image.vendor="XPANEL"
 LABEL org.opencontainers.image.licenses="AGPL-3.0"
-LABEL org.opencontainers.image.documentation="https://docs.rw"
+LABEL org.opencontainers.image.documentation="https://docs.CHANGE-ME.example"
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*

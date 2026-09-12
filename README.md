@@ -1,16 +1,16 @@
-## Remnawave Subscription Page
+## XPANEL Subscription Page
 
-Learn more about Remnawave [here](https://docs.rw/).
+Learn more about XPANEL [here](https://docs.CHANGE-ME.example/).
 
 # Contributors
 
-Check [open issues](https://github.com/remnawave/subscription-page/issues) to help the progress of this project.
+Check [open issues](https://github.com/CHANGE-ME/xpanel/subscription-page/issues) to help the progress of this project.
 
 <p align="center">
-Thanks to the all contributors who have helped improve Remnawave:
+Thanks to the all contributors who have helped improve XPANEL:
 </p>
 <p align="center">
-<a href="https://github.com/remnawave/subscription-page/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=remnawave/subscription-page" />
+<a href="https://github.com/CHANGE-ME/xpanel/subscription-page/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=xpanel/subscription-page" />
 </a>
 </p>
