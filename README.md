@@ -217,6 +217,7 @@ docker build -t subscription-page .
 - [xray-panel/backend](https://github.com/xray-panel/backend) — панель
 - [xray-panel/frontend](https://github.com/xray-panel/frontend) — интерфейс панели
 - [xray-panel/node](https://github.com/xray-panel/node) — нода
+- Telegram-канал проекта — https://t.me/x_lada
 
 ---
 

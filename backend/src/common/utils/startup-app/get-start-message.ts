@@ -1,7 +1,7 @@
 import { getBorderCharacters, table } from 'table';
 
 export async function getStartMessage() {
-    return table([['Docs → https://xlada.app\nCommunity → https://github.com/xray-panel']], {
+    return table([['Docs → https://xlada.app\nCommunity → https://t.me/x_lada']], {
         header: {
             content: `XLADA Subscription Page v${__RW_SUBPAGE_VERSION__}`,
             alignment: 'center',
