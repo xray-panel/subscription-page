@@ -21,6 +21,9 @@ export const MinimalBlockRenderer = ({
                 return (
                     <Box className={classes.stepBlock} key={index}>
                         <Group gap="sm" mb="xs" wrap="nowrap">
+                            <span className={classes.stepBadge}>
+                                {String(index + 1).padStart(2, '0')}
+                            </span>
                             <ThemeIconShared
                                 getIconFromLibrary={getIconFromLibrary}
                                 gradientStyle={gradientStyle}

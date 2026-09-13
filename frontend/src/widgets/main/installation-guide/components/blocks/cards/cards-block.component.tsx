@@ -25,6 +25,9 @@ export const CardsBlockRenderer = ({
                         p={{ base: 'sm', xs: 'md', sm: 'lg' }}
                         radius="lg"
                     >
+                        <span className={classes.stepNumber}>
+                            {String(index + 1).padStart(2, '0')}
+                        </span>
                         <Group align="flex-start" gap={isMobile ? 'sm' : 'md'} wrap="nowrap">
                             <ThemeIconShared
                                 getIconFromLibrary={getIconFromLibrary}

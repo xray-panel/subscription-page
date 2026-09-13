@@ -15,7 +15,7 @@ import {
 } from '@widgets/main'
 import { useAppConfig, useAppConfigStoreActions, useCurrentLang } from '@entities/app-config-store'
 import { LanguagePicker } from '@shared/ui/language-picker/language-picker.shared'
-import { Page, RemnawaveLogo } from '@shared/ui'
+import { Page, XladaLogo } from '@shared/ui'
 
 interface IMainPageComponentProps {
     isMobile: boolean
@@ -78,23 +78,26 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
                         <Group gap="sm" style={{ userSelect: 'none' }} wrap="nowrap">
                             {hasCustomLogo ? (
                                 <Image
-                                    alt="logo"
+                                    alt={brandName}
                                     fit="contain"
                                     src={config.brandingSettings.logoUrl}
                                     style={{
-                                        width: '32px',
-                                        height: '32px',
+                                        width: '36px',
+                                        height: '36px',
                                         flexShrink: 0
                                     }}
                                 />
                             ) : (
-                                <RemnawaveLogo c="cyan" size={32} />
+                                <XladaLogo size={36} />
                             )}
                             <Title
-                                c={hasCustomLogo ? 'white' : 'cyan'}
+                                className={
+                                    hasCustomLogo ? 'logo-text-normal' : 'logo-text-highlight'
+                                }
                                 fw={700}
-                                order={4}
-                                size="lg"
+                                order={3}
+                                size="xl"
+                                style={{ letterSpacing: '-0.02em' }}
                             >
                                 {brandName}
                             </Title>

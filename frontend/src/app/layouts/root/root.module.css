@@ -8,10 +8,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .main {
     max-width: 800px;
     width: 100%;
     align-self: center;
+    padding-inline: var(--mantine-spacing-md);
+    padding-block-end: var(--mantine-spacing-xl);
 }

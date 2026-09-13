@@ -1,19 +1,17 @@
-import { IconArrowsUpDown, IconCalendar, IconCheck, IconUserScan, IconX } from '@tabler/icons-react'
+import { IconCheck, IconUserScan, IconX } from '@tabler/icons-react'
 import { Box, Group, SimpleGrid, Stack, Text, ThemeIcon } from '@mantine/core'
 
 import { useSubscription } from '@entities/subscription-info-store'
-import { formatDate } from '@shared/utils/config-parser'
 import { useTranslation } from '@shared/hooks'
 
+import { ExpiresFeaturedBlock, TrafficFeaturedBlock } from './subscription-info-featured-blocks'
 import classes from './subscription-info-cards.module.css'
 
-type ColorVariant = 'blue' | 'cyan' | 'green' | 'orange' | 'red' | 'teal' | 'violet' | 'yellow'
+type ColorVariant = 'blue' | 'green' | 'orange' | 'red' | 'violet' | 'yellow'
 
 const iconColorClasses: Record<ColorVariant, string> = {
     blue: classes.iconBlue,
-    cyan: classes.iconCyan,
     green: classes.iconGreen,
-    teal: classes.iconTeal,
     red: classes.iconRed,
     yellow: classes.iconYellow,
     orange: classes.iconOrange,
@@ -66,7 +64,7 @@ interface IProps {
 }
 
 export const SubscriptionInfoCardsWidget = ({ isMobile: _ }: IProps) => {
-    const { t, currentLang, baseTranslations } = useTranslation()
+    const { t, baseTranslations } = useTranslation()
     const subscription = useSubscription()
 
     const { user } = subscription
@@ -74,40 +72,30 @@ export const SubscriptionInfoCardsWidget = ({ isMobile: _ }: IProps) => {
     const isActive = user.userStatus === 'ACTIVE'
     const statusText = isActive ? t(baseTranslations.active) : t(baseTranslations.inactive)
 
-    const bandwidthValue =
-        user.trafficLimit === '0'
-            ? `${user.trafficUsed} / ∞`
-            : `${user.trafficUsed} / ${user.trafficLimit}`
-
     return (
-        <SimpleGrid cols={{ base: 1, xs: 1, sm: 2 }} spacing="xs" verticalSpacing="xs">
-            <CardItem
-                color="blue"
-                icon={<IconUserScan size={18} />}
-                label={t(baseTranslations.name)}
-                value={user.username}
-            />
+        <Stack gap="xs">
+            {/* Primary tier: the two most important figures, rendered large. */}
+            <SimpleGrid cols={{ base: 1, xs: 2 }} spacing="xs" verticalSpacing="xs">
+                <TrafficFeaturedBlock />
+                <ExpiresFeaturedBlock />
+            </SimpleGrid>
 
-            <CardItem
-                color={isActive ? 'green' : 'red'}
-                icon={isActive ? <IconCheck size={18} /> : <IconX size={18} />}
-                label={t(baseTranslations.status)}
-                value={statusText}
-            />
+            {/* Secondary tier: supporting details, smaller and muted. */}
+            <SimpleGrid cols={{ base: 1, xs: 1, sm: 2 }} spacing="xs" verticalSpacing="xs">
+                <CardItem
+                    color="blue"
+                    icon={<IconUserScan size={18} />}
+                    label={t(baseTranslations.name)}
+                    value={user.username}
+                />
 
-            <CardItem
-                color="orange"
-                icon={<IconCalendar size={18} />}
-                label={t(baseTranslations.expires)}
-                value={formatDate(user.expiresAt, currentLang, baseTranslations)}
-            />
-
-            <CardItem
-                color="cyan"
-                icon={<IconArrowsUpDown size={18} />}
-                label={t(baseTranslations.bandwidth)}
-                value={bandwidthValue}
-            />
-        </SimpleGrid>
+                <CardItem
+                    color={isActive ? 'green' : 'red'}
+                    icon={isActive ? <IconCheck size={18} /> : <IconX size={18} />}
+                    label={t(baseTranslations.status)}
+                    value={statusText}
+                />
+            </SimpleGrid>
+        </Stack>
     )
 }

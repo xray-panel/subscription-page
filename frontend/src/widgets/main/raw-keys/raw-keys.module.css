@@ -1,8 +1,11 @@
 .modalContent {
-    background: rgba(22, 27, 35, 0.95);
+    background: rgba(17, 20, 39, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(139, 107, 247, 0.25);
+    box-shadow:
+        0 24px 64px rgba(3, 4, 14, 0.6),
+        0 0 32px rgba(124, 92, 255, 0.12);
 }
 
 .modalHeader {
@@ -11,13 +14,27 @@
 
 .modalTitle {
     font-weight: 600;
-    color: white;
+    letter-spacing: -0.01em;
+    color: var(--mantine-color-dark-0);
 }
 
 .keyBox {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(139, 107, 247, 0.04);
+    border: 1px solid rgba(139, 107, 247, 0.14);
     border-radius: var(--mantine-radius-md);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.keyBox:hover {
+    background: rgba(139, 107, 247, 0.08);
+    border-color: rgba(139, 107, 247, 0.3);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 14px rgba(124, 92, 255, 0.1);
 }
 
 .keyRow {
@@ -37,7 +54,16 @@
 
 .keyName {
     overflow: hidden;
+    min-width: 0;
+}
+
+.keyLink {
+    display: block;
+    font-family: var(--mantine-font-family-monospace);
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--mantine-color-dark-2);
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    min-width: 0;
 }

@@ -12,8 +12,18 @@
     font-weight: 900;
     font-size: rem(220px);
     line-height: 1;
+    letter-spacing: -0.04em;
     margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
-    color: var(--mantine-color-blue-3);
+    background: linear-gradient(
+        135deg,
+        var(--mantine-color-violet-4) 0%,
+        var(--mantine-color-cyan-4) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 0 28px rgba(124, 92, 255, 0.35));
 
     @media (max-width: $mantine-breakpoint-sm) {
         font-size: rem(120px);
@@ -22,9 +32,10 @@
 
 .title {
     text-align: center;
-    font-weight: 900;
+    font-weight: 800;
     font-size: rem(38px);
-    color: var(--mantine-color-white);
+    letter-spacing: -0.02em;
+    color: var(--mantine-color-dark-0);
 
     @media (max-width: $mantine-breakpoint-sm) {
         font-size: rem(32px);
@@ -36,5 +47,5 @@
     margin: auto;
     margin-top: var(--mantine-spacing-xl);
     margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
-    color: var(--mantine-color-blue-1);
+    color: var(--mantine-color-dark-2);
 }

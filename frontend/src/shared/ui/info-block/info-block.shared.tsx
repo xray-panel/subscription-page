@@ -5,11 +5,12 @@ import { IInfoBlockProps } from './interfaces/props.interface'
 import classes from './info-block.module.css'
 
 export const InfoBlockShared = ({ color, icon, title, value }: IInfoBlockProps) => {
+    // Unknown/unset colors fall back to the primary XLADA accent (violet).
     return (
-        <Box className={clsx(classes.infoBlock, classes[color] || classes.cyan)}>
+        <Box className={clsx(classes.infoBlock, classes[color] || classes.violet)}>
             <Stack gap={4}>
                 <Group gap={4} wrap="nowrap">
-                    <ThemeIcon color={color} radius="sm" size="xs" variant="light">
+                    <ThemeIcon color={color} radius="md" size="sm" variant="light">
                         {icon}
                     </ThemeIcon>
                     <Text c="dimmed" fw={500} size="xs" truncate>

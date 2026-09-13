@@ -1,15 +1,20 @@
 /* Timeline styles */
 .timelineRoot {
-    --tl-line-color: rgba(255, 255, 255, 0.08);
+    --tl-line-color: rgba(139, 107, 247, 0.28);
 }
 
 .timelineItem {
-    padding-bottom: var(--mantine-spacing-md);
+    padding-bottom: var(--mantine-spacing-lg);
+}
+
+.timelineItem:last-child {
+    padding-bottom: 0;
 }
 
 .timelineItemBullet {
     background: transparent !important;
     border: none !important;
+    filter: drop-shadow(0 0 8px rgba(124, 92, 255, 0.25));
 }
 
 .bulletIconSvg {

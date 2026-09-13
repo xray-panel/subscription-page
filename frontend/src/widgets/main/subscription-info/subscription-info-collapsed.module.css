@@ -1,0 +1,12 @@
+.toggleButton {
+    border-radius: var(--mantine-radius-lg) var(--mantine-radius-lg) 0 0;
+    transition: background 0.25s ease;
+}
+
+.toggleButton:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.trafficStrip {
+    border-top: 1px solid rgba(139, 107, 247, 0.1);
+}

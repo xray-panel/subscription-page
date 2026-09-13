@@ -6,6 +6,7 @@ export function LoadingScreen({ height = '100%' }: { height?: string }) {
         <Center h={height}>
             <Stack align="center" gap="xs" w="100%">
                 <Spinner
+                    gradient={{ from: 'violet.5', to: 'cyan.4' }}
                     inner={50}
                     segments={30}
                     size={150}

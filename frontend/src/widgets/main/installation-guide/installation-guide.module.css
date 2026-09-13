@@ -14,17 +14,19 @@
     height: 48px;
     min-width: 0;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 3px solid rgba(255, 255, 255, 0.08);
+    background: rgba(139, 107, 247, 0.05);
+    border: 1px solid rgba(139, 107, 247, 0.16);
+    border-left: 3px solid rgba(139, 107, 247, 0.16);
     border-radius: var(--mantine-radius-md);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .appButton:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-left-color: rgba(255, 255, 255, 0.25);
+    background: rgba(139, 107, 247, 0.1);
+    border-color: rgba(139, 107, 247, 0.3);
+    border-left-color: rgba(139, 107, 247, 0.45);
 }
 
 .appButton:hover .bgIcon {
@@ -33,16 +35,20 @@
 
 .appButtonActive,
 .appButtonActive:hover {
-    background: linear-gradient(90deg, rgba(34, 211, 238, 0.12) 0%, rgba(34, 211, 238, 0.04) 100%);
-    border-color: rgba(34, 211, 238, 0.2);
-    border-left-color: var(--mantine-color-cyan-5);
+    background: linear-gradient(
+        90deg,
+        rgba(124, 92, 255, 0.16) 0%,
+        rgba(124, 92, 255, 0.05) 100%
+    );
+    border-color: rgba(124, 92, 255, 0.35);
+    border-left-color: var(--mantine-color-violet-5);
     box-shadow:
-        inset 4px 0 12px -4px rgba(34, 211, 238, 0.3),
-        0 0 12px rgba(34, 211, 238, 0.1);
+        inset 4px 0 12px -4px rgba(124, 92, 255, 0.35),
+        0 0 16px rgba(124, 92, 255, 0.15);
 }
 
 .appButtonActive .appName {
-    color: var(--mantine-color-cyan-3);
+    color: var(--mantine-color-violet-2);
 }
 
 .appButtonActive .bgIcon,
@@ -83,9 +89,10 @@
 .appName {
     position: relative;
     z-index: 1;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--mantine-color-dark-0);
     font-size: var(--mantine-font-size-md);
     font-weight: 600;
+    letter-spacing: -0.01em;
     white-space: nowrap;
 }
 
@@ -99,12 +106,12 @@
     opacity: 1;
     z-index: 0;
     border-radius: 50%;
-    background: #efbf04;
+    background: var(--mantine-color-yellow-4);
 
-    box-shadow: 0 0 6px rgba(239, 191, 4, 0.6);
+    box-shadow: 0 0 6px rgba(236, 180, 36, 0.6);
 }
 
 .appButtonActive .featuredBadge {
     opacity: 0.8;
-    box-shadow: 0 0 8px rgba(239, 191, 4, 0.4);
+    box-shadow: 0 0 8px rgba(236, 180, 36, 0.4);
 }

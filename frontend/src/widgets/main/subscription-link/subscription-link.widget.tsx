@@ -2,11 +2,12 @@ import {
     IconBrandDiscord,
     IconBrandTelegram,
     IconBrandVk,
+    IconCheck,
     IconCopy,
     IconLink,
     IconMessageChatbot
 } from '@tabler/icons-react'
-import { ActionIcon, Button, Group, Image, Stack, Text } from '@mantine/core'
+import { ActionIcon, Button, Group, Image, Stack, Text, Tooltip } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { useClipboard } from '@mantine/hooks'
 import { modals } from '@mantine/modals'
@@ -56,20 +57,17 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
 
         const { icon: Icon, color } = matchedPlatform
             ? matchedPlatform[1]
-            : { icon: IconMessageChatbot, color: 'cyan' }
+            : { icon: IconMessageChatbot, color: 'violet' }
 
         return (
             <ActionIcon
                 c={color}
+                className={classes.supportActionIcon}
                 component="a"
                 href={supportUrl}
                 radius="md"
                 rel="noopener noreferrer"
                 size="xl"
-                style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
                 target="_blank"
                 variant="default"
             >
@@ -82,8 +80,8 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
         vibrate('tap')
 
         const subscriptionQrCode = renderSVG(subscriptionUrl, {
-            whiteColor: '#161B22',
-            blackColor: '#22d3ee'
+            whiteColor: '#111427',
+            blackColor: '#a78bfa'
         })
 
         modals.open({
@@ -100,7 +98,7 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                         src={`data:image/svg+xml;utf8,${encodeURIComponent(subscriptionQrCode)}`}
                         style={{ borderRadius: 'var(--mantine-radius-md)' }}
                     />
-                    <Text c="white" fw={600} size="lg" ta="center">
+                    <Text c="white" fw={700} size="lg" ta="center">
                         {t(baseTranslations.scanQrCode)}
                     </Text>
                     <Text c="dimmed" size="sm" ta="center">
@@ -108,13 +106,18 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
                     </Text>
 
                     <Button
+                        color={clipboard.copied ? 'teal' : undefined}
                         fullWidth
-                        leftSection={<IconCopy />}
+                        gradient={{ from: 'violet', to: 'cyan', deg: 135 }}
+                        leftSection={clipboard.copied ? <IconCheck /> : <IconCopy />}
                         onClick={handleCopy}
                         radius="md"
-                        variant="light"
+                        size="md"
+                        variant={clipboard.copied ? 'light' : 'gradient'}
                     >
-                        {t(baseTranslations.copyLink)}
+                        {clipboard.copied
+                            ? t(baseTranslations.linkCopied)
+                            : t(baseTranslations.copyLink)}
                     </Button>
                 </Stack>
             )
@@ -124,15 +127,17 @@ export const SubscriptionLinkWidget = ({ supportUrl, hideGetLink }: IProps) => {
     return (
         <Group gap="xs" ml="auto" wrap="nowrap">
             {!hideGetLink && (
-                <ActionIcon
-                    className={classes.actionIcon}
-                    onClick={handleGetLink}
-                    radius="md"
-                    size="xl"
-                    variant="default"
-                >
-                    <IconLink />
-                </ActionIcon>
+                <Tooltip label={t(baseTranslations.getLink)} position="bottom" withArrow>
+                    <ActionIcon
+                        className={classes.linkActionIcon}
+                        onClick={handleGetLink}
+                        radius="md"
+                        size="xl"
+                        variant="filled"
+                    >
+                        <IconLink />
+                    </ActionIcon>
+                </Tooltip>
             )}
 
             {supportUrl !== '' && renderSupportLink(supportUrl)}

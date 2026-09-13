@@ -44,6 +44,9 @@ export const AccordionBlockRenderer = ({
                     <Accordion.Item key={index} value={String(index)}>
                         <Accordion.Control>
                             <Group gap="sm" wrap="nowrap">
+                                <span className={classes.stepBadge}>
+                                    {String(index + 1).padStart(2, '0')}
+                                </span>
                                 <ThemeIconShared
                                     getIconFromLibrary={getIconFromLibrary}
                                     gradientStyle={gradientStyle}

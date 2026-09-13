@@ -1,21 +1,16 @@
-import {
-    IconAlertCircle,
-    IconArrowsUpDown,
-    IconCalendar,
-    IconCheck,
-    IconUserScan,
-    IconX
-} from '@tabler/icons-react'
-import { Card, Group, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core'
+import { IconCheck, IconUserScan, IconX } from '@tabler/icons-react'
+import { Badge, Card, Group, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core'
 
-import {
-    formatDate,
-    getColorGradientSolid,
-    getExpirationTextUtil
-} from '@shared/utils/config-parser'
+import { getColorGradientSolid, getExpirationTextUtil } from '@shared/utils/config-parser'
 import { InfoBlockShared } from '@shared/ui/info-block/info-block.shared'
 import { useSubscription } from '@entities/subscription-info-store'
 import { useTranslation } from '@shared/hooks'
+
+import {
+    ExpiresFeaturedBlock,
+    TrafficFeaturedBlock,
+    useSubscriptionStatus
+} from './subscription-info-featured-blocks'
 
 interface IProps {
     isMobile: boolean
@@ -27,49 +22,25 @@ export const SubscriptionInfoExpandedWidget = ({ isMobile }: IProps) => {
 
     const { user } = subscription
 
-    const getStatusAndIcon = (): {
-        color: string
-        icon: React.ReactNode
-        status: string
-    } => {
-        if (user.userStatus === 'ACTIVE' && user.daysLeft > 0) {
-            return {
-                color: 'teal',
-                icon: <IconCheck size={isMobile ? 18 : 22} />,
-                status: t(baseTranslations.active)
-            }
-        }
-        if (
-            (user.userStatus === 'ACTIVE' && user.daysLeft === 0) ||
-            (user.daysLeft >= 0 && user.daysLeft <= 3)
-        ) {
-            return {
-                color: 'orange',
-                icon: <IconAlertCircle size={isMobile ? 18 : 22} />,
-                status: t(baseTranslations.active)
-            }
-        }
-        return {
-            color: 'red',
-            icon: <IconX size={isMobile ? 18 : 22} />,
-            status: t(baseTranslations.inactive)
-        }
-    }
+    const status = useSubscriptionStatus(isMobile ? 18 : 22)
+    const badgeStatus = useSubscriptionStatus(14)
+    const gradientColor = getColorGradientSolid(status.color)
 
-    const statusInfo = getStatusAndIcon()
-    const gradientColor = getColorGradientSolid(statusInfo.color)
+    const statusText = status.isActive
+        ? t(baseTranslations.active)
+        : t(baseTranslations.inactive)
 
     return (
         <Card p={{ base: 'sm', xs: 'md', sm: 'lg', md: 'xl' }} radius="lg">
             <Stack gap={isMobile ? 'sm' : 'md'}>
-                <Group gap="sm" justify="space-between">
+                <Group gap="sm" justify="space-between" wrap="nowrap">
                     <Group
                         gap={isMobile ? 'xs' : 'sm'}
                         style={{ minWidth: 0, flex: 1 }}
                         wrap="nowrap"
                     >
                         <ThemeIcon
-                            color={statusInfo.color}
+                            color={status.color}
                             radius="xl"
                             size={isMobile ? 36 : 44}
                             style={{
@@ -80,15 +51,16 @@ export const SubscriptionInfoExpandedWidget = ({ isMobile }: IProps) => {
                             }}
                             variant="light"
                         >
-                            {statusInfo.icon}
+                            {status.icon}
                         </ThemeIcon>
 
                         <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
                             <Title
                                 c="white"
-                                fw={600}
-                                order={5}
+                                fw={700}
+                                order={4}
                                 style={{
+                                    letterSpacing: '-0.02em',
                                     overflow: 'hidden',
                                     textOverflow: 'ellipsis',
                                     whiteSpace: 'nowrap'
@@ -97,7 +69,7 @@ export const SubscriptionInfoExpandedWidget = ({ isMobile }: IProps) => {
                                 {user.username}
                             </Title>
                             <Text
-                                c={user.daysLeft === 0 ? 'red' : 'dimmed'}
+                                c={user.daysLeft <= 0 ? 'red' : 'dimmed'}
                                 fw={600}
                                 size={isMobile ? 'xs' : 'sm'}
                             >
@@ -109,8 +81,27 @@ export const SubscriptionInfoExpandedWidget = ({ isMobile }: IProps) => {
                             </Text>
                         </Stack>
                     </Group>
+
+                    {!isMobile && (
+                        <Badge
+                            color={badgeStatus.color}
+                            leftSection={badgeStatus.icon}
+                            size="xl"
+                            style={{ flexShrink: 0 }}
+                            variant="light"
+                        >
+                            {statusText}
+                        </Badge>
+                    )}
                 </Group>
 
+                {/* Primary tier: traffic and expiration, rendered large. */}
+                <SimpleGrid cols={{ base: 1, xs: 2 }} spacing="xs" verticalSpacing="xs">
+                    <TrafficFeaturedBlock />
+                    <ExpiresFeaturedBlock />
+                </SimpleGrid>
+
+                {/* Secondary tier: supporting details, smaller and muted. */}
                 <SimpleGrid cols={{ base: 2, xs: 2, sm: 2 }} spacing="xs" verticalSpacing="xs">
                     <InfoBlockShared
                         color="blue"
@@ -129,25 +120,7 @@ export const SubscriptionInfoExpandedWidget = ({ isMobile }: IProps) => {
                             )
                         }
                         title={t(baseTranslations.status)}
-                        value={
-                            user.userStatus === 'ACTIVE'
-                                ? t(baseTranslations.active)
-                                : t(baseTranslations.inactive)
-                        }
-                    />
-
-                    <InfoBlockShared
-                        color="red"
-                        icon={<IconCalendar size={16} />}
-                        title={t(baseTranslations.expires)}
-                        value={formatDate(user.expiresAt, currentLang, baseTranslations)}
-                    />
-
-                    <InfoBlockShared
-                        color="yellow"
-                        icon={<IconArrowsUpDown size={16} />}
-                        title={t(baseTranslations.bandwidth)}
-                        value={`${user.trafficUsed} / ${user.trafficLimit === '0' ? '∞' : user.trafficLimit}`}
+                        value={statusText}
                     />
                 </SimpleGrid>
             </Stack>
