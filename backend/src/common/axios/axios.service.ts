@@ -34,7 +34,7 @@ export class AxiosService implements OnModuleInit {
             baseURL: this.configService.getOrThrow('REMNAWAVE_PANEL_URL'),
             timeout: 10_000,
             headers: {
-                'user-agent': 'XPANEL Subscription Page',
+                'user-agent': 'XLADA Subscription Page',
                 'x-subpage-version': this.subpageVersion,
                 Authorization: `Bearer ${this.configService.getOrThrow('REMNAWAVE_API_TOKEN')}`,
             },
@@ -75,7 +75,7 @@ export class AxiosService implements OnModuleInit {
     async onModuleInit(): Promise<void> {
         this.subpageVersion = __RW_SUBPAGE_VERSION__;
 
-        this.logger.log(`XPANEL API URL: ${this.axiosInstance.defaults.baseURL}`);
+        this.logger.log(`XLADA API URL: ${this.axiosInstance.defaults.baseURL}`);
 
         const remnawaveMetadata = await this.getRemnawaveMetadata();
         if (!remnawaveMetadata.isOk || !remnawaveMetadata.remnawaveVersion) {
@@ -83,7 +83,7 @@ export class AxiosService implements OnModuleInit {
                 '\n' +
                     table([['Is the panel online and reachable from this server?']], {
                         header: {
-                            content: `Connection to XPANEL Panel failed!`,
+                            content: `Connection to XLADA Panel failed!`,
                             alignment: 'center',
                         },
                         columnDefault: {
@@ -99,7 +99,7 @@ export class AxiosService implements OnModuleInit {
 
             exit(1);
         } else {
-            this.logger.log(`[OK] Connected to XPANEL v${remnawaveMetadata.remnawaveVersion}`);
+            this.logger.log(`[OK] Connected to XLADA v${remnawaveMetadata.remnawaveVersion}`);
         }
     }
 
@@ -211,7 +211,7 @@ export class AxiosService implements OnModuleInit {
                 if (error.response?.status === 404) {
                     this.logger.error('Request failed with 404 status code.');
                     this.logger.error(
-                        'This version of Subscription Page requires XPANEL Panel version >=2.4.0. Please upgrade XPANEL Panel to the latest version or downgrade Subscription Page.',
+                        'This version of Subscription Page requires XLADA Panel version >=2.4.0. Please upgrade XLADA Panel to the latest version or downgrade Subscription Page.',
                     );
                     return { isOk: false };
                 }

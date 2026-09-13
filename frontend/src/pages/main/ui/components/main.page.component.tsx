@@ -45,7 +45,7 @@ export const MainPageComponent = ({ isMobile, platform }: IMainPageComponentProp
     let hasCustomLogo = !!config.brandingSettings.logoUrl
 
     if (hasCustomLogo) {
-        // XPANEL: стандартный логотип определяется по адресу-заглушке, а также
+        // XLADA: стандартный логотип определяется по адресу-заглушке, а также
         // по домену вендора — в уже существующих конфигурациях там записан
         // именно он, и после обновления страница не должна показывать битую
         // картинку вместо встроенного логотипа.

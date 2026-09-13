@@ -55,7 +55,7 @@ export class MarzbanService {
                 );
                 if (!userInfo.isOk || !userInfo.response) {
                     this.logger.error(
-                        `Decoded Marzban username is not found in XPANEL, decoded username: ${sanitizedUsername}`,
+                        `Decoded Marzban username is not found in XLADA, decoded username: ${sanitizedUsername}`,
                     );
 
                     return {

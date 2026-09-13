@@ -1,6 +1,6 @@
 services:
   xpanel-subscription-page:
-    image: xpanel/subscription-page:latest
+    image: xlada/subscription-page:latest
     container_name: xpanel-subscription-page
     hostname: xpanel-subscription-page
     restart: always

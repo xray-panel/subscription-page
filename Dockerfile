@@ -15,13 +15,13 @@ RUN npm run build \
 FROM node:24.18-trixie-slim
 WORKDIR /opt/app
 
-LABEL org.opencontainers.image.title="XPANEL Subscription Page"
-LABEL org.opencontainers.image.description="XPANEL Subscription Page"
+LABEL org.opencontainers.image.title="XLADA Subscription Page"
+LABEL org.opencontainers.image.description="XLADA Subscription Page"
 LABEL org.opencontainers.image.url="https://github.com/xray-panel/subscription-page"
 LABEL org.opencontainers.image.source="https://github.com/xray-panel/subscription-page"
-LABEL org.opencontainers.image.vendor="XPANEL"
+LABEL org.opencontainers.image.vendor="XLADA"
 LABEL org.opencontainers.image.licenses="AGPL-3.0"
-LABEL org.opencontainers.image.documentation="https://docs.xraypanel.dev"
+LABEL org.opencontainers.image.documentation="https://xlada.app"
 
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*

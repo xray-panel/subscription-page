@@ -24,7 +24,7 @@ const isTrustProxy = (val: string): boolean => {
 };
 
 const REQUIRED_REMNAWAVE_API_TOKEN_MESSAGE =
-    'XPANEL Dashboard → XPANEL Settings → API Tokens. Create a new API Token and set it in the .env file.';
+    'XLADA Dashboard → XLADA Settings → API Tokens. Create a new API Token and set it in the .env file.';
 
 export const configSchema = z
     .object({
