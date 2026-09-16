@@ -1,0 +1,17 @@
+services:
+  xpanel-subscription-page:
+    image: ghcr.io/xray-panel/subscription-page:latest
+    container_name: xpanel-subscription-page
+    hostname: xpanel-subscription-page
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '127.0.0.1:3010:3010'
+    networks:
+      - xpanel-network
+
+networks:
+  xpanel-network:
+    driver: bridge
+    external: true
